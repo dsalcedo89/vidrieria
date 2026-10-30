@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: vidrieria
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/vidrieria_db}
+    username: ${DB_USERNAME:vidrieria_app}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+server:
+  port: 8080
+
+  error:
+    include-message: never
+    include-stacktrace: never
